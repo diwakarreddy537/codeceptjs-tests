@@ -3,7 +3,7 @@ const assert = require("assert");
 Feature("Test oranum website");
 
 Scenario(
-  "Search for Expert or category: Searching for partial text should display only matching psychics",
+  "Req-1_Search for Expert or category: Searching for partial text should display only matching psychics",
   async ({ I }) => {
     I.goto("https://www.oranum.com/en/");
     const searchTerm = "matt";
@@ -14,7 +14,7 @@ Scenario(
 );
 
 Scenario(
-  "Validate that the following buttons will trigger a 'Sign up' overlay to be displayed",
+  "Req-2_Validate that the following buttons will trigger a 'Sign up' overlay to be displayed",
   async ({ I }) => {
     await I.findLiveExpert();
     await I.checkVideoContainer();
@@ -64,7 +64,7 @@ Scenario(
 );
 
 Scenario(
-  "Selecting different topics should display only matching psychic",
+  "Req-3_Selecting different topics should display only matching psychic",
   async ({ I }) => {
     I.goto("https://www.oranum.com/en/");
 
