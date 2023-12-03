@@ -20,5 +20,10 @@ exports.config = {
   include: {
     I: './steps_file.js'
   },
+  plugins: {
+    allure: {
+        enabled: true,
+    }
+},
   name: 'codecept-test'
 }
