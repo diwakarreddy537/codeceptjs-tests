@@ -1,0 +1,16 @@
+{
+    "name": "codeceptjs-tests",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "test": "codeceptjs run --steps",
+        "test:docker": "docker run --net=host -v $PWD:/tests codeceptjs/codeceptjs"
+    },
+    "devDependencies": {
+        "@codeceptjs/configure": "^0.10.0",
+        "@codeceptjs/examples": "^1.2.1",
+        "@codeceptjs/ui": "^0.7.0",
+        "codeceptjs": "^3.5.8",
+        "playwright": "^1.40.1"
+    }
+}

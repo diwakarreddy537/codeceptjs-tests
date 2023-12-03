@@ -1,0 +1,4 @@
+version: '2'
+services:
+  codeceptjs:
+    image: codeceptjs/codeceptjs
