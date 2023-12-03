@@ -86,8 +86,7 @@ Scenario(
         const label = li.querySelector("label");
         return (
           label &&
-          (label.innerText.includes("Category") ||
-            label.innerText.includes("Topics"))
+          (label.innerText.includes("Category") )
         );
       }, liSelector);
 
@@ -98,7 +97,7 @@ Scenario(
 
     // Navigate all the links from Category and Topics sub menu
     for (let i = 0; i < findMenuIndex.length; i++) {
-      const anchorLinksSelector = `.sidebar-filters > li:nth-child(${i}) a`;
+      const anchorLinksSelector = `.sidebar-filters > li:nth-child(${findMenuIndex[i]}) a`;
       const anchorLinksCount = await I.grabNumberOfVisibleElements(
         anchorLinksSelector
       );
