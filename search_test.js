@@ -110,7 +110,7 @@ Scenario(
         I.click(anchorLinkSelector);
 
         await I.checkForDuplicateExpertsFromList();
-        await I.checkCategoryFromSearchResult(name);
+        await I.checkCategoryFromSearchResult(name.trim());
       }
     }
   }

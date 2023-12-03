@@ -53,17 +53,30 @@ module.exports = function () {
       );
 
       for (let i = 1; i <= articlesCount; i++) {
-        const articleSelector = `.thumb-container article:not(.thumb-campaign):nth-child(${i})`;
+        const articleSelector = `.thumb-container article:nth-child(${i})`;
 
-        const result = await this.grabTextFrom(
-          `${articleSelector} .thumb-data-willingness-list`
+        const isCampaign = await this.hasClass(
+          articleSelector,
+          "thumb-campaign"
         );
-        assert(
-          result.toLowerCase().includes(name.toLowerCase()),
-          `${name.trim()} category or tag search have different experts list found`
-        );
+        if (!isCampaign) {
+          const result = await this.grabTextFrom(
+            `${articleSelector} .thumb-data-willingness-list`
+          );
+
+          assert(
+            result.toLowerCase().includes(name.toLowerCase()),
+            `${name.trim()} category or tag search has different experts list found`
+          );
+        }
       }
-      this.say("Category or Tag name are matched");
+
+      this.say("Category or Tag name is matched");
+    },
+
+    async hasClass(selector, className) {
+      const elementClasses = await this.grabAttributeFrom(selector, "class");
+      return elementClasses.includes(className);
     },
 
     async checkForDuplicateExpertsFromList() {
